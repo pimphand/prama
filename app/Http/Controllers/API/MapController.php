@@ -16,7 +16,7 @@ class MapController extends Controller
      */
     public function index()
     {
-        $map = Map::latest()->get();
+        $map = Map::latest()->paginate(12);
         return response([
             'success' => true,
             'message' => 'List Semua Map',
@@ -131,7 +131,44 @@ class MapController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validator = Validator::make(
+            $request->all(),
+            [
+                'nama' => 'required',
+                'longitude' => 'required',
+                'latitude' => 'required',
+                'deskripsi' => 'required',
+            ],
+            [
+                'nama.required' => 'masukan nama kota',
+                'longitude.required' => 'masukan longitude',
+                'latitude.required' => 'masukan latitude',
+                'deskripsi.required' => 'masukan deskripsi',
+            ]
+        );
+
+        if ($validator->fails()) {
+            return response([
+                'success' => false,
+                'message' => 'isi bidang yang kosong',
+                'data' => $validator->errors()
+            ], 400);
+        } else {
+            $edit = Map::findOrFail($id);
+            $edit->update($request->all());
+        }
+        if ($edit) {
+            return response()->json([
+                'success' => true,
+                'message' => 'Data berhasil disimpan',
+                'data' => $edit,
+            ], 200);
+        } else {
+            return response()->json([
+                'success' => false,
+                'message' => 'Data gagal disimpan'
+            ], 400);
+        }
     }
 
     /**
@@ -142,6 +179,14 @@ class MapController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $map = Map::whereId($id);
+        $map->delete();
+
+        if ($map) {
+            return response()->json([
+                'success' => true,
+                'message' => 'Map berhasil di hapus',
+            ], 200);
+        }
     }
 }
