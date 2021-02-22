@@ -16,7 +16,7 @@ class MapController extends Controller
      */
     public function index()
     {
-        $map = Map::latest()->paginate(12);
+        $map = Map::latest()->get();
         return response([
             'success' => true,
             'message' => 'List Semua Map',

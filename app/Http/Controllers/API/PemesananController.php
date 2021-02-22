@@ -16,7 +16,7 @@ class PemesananController extends Controller
      */
     public function index()
     {
-        $pemesanan = Pemesanan::latest()->get();
+        $pemesanan = Pemesanan::latest()->paginate(2);
         return response([
             'success' => true,
             'message' => 'List Semua Pemesanan',

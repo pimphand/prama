@@ -34,6 +34,8 @@ Route::get('map/{id}', 'API\MapController@show');
 Route::post('map/{id}', 'API\MapController@update');
 Route::delete('hapus/map/{id}', 'API\MapController@destroy');
 
+//
+Route::resource('berita', 'API\BeritaController');
 
 Route::middleware('auth:api')->group(function () {
     Route::group(['prefix' => 'user', 'as' => 'user.'], function () {
