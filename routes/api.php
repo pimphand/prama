@@ -20,11 +20,13 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::post('login', 'API\AuthController@login');
 Route::post('register', 'API\AuthController@register');
-Route::post('pemesanan', 'API\PemesananController@store');
-Route::get('pemesanan', 'API\PemesananController@index');
-Route::get('pemesanan/{id}', 'API\PemesananController@show');
-Route::post('pemesanan/{id}', 'API\PemesananController@update');
-Route::delete('hapus/pemesanan/{id}', 'API\PemesananController@destroy');
+//pemesanan
+Route::resource('pemesanan', 'API\PemesananController');
+
+//map
+Route::resource('map', 'API\MapController');
+// Route::get('map/{id}', 'API\MapController@show');
+
 
 Route::middleware('auth:api')->group(function () {
     Route::group(['prefix' => 'user', 'as' => 'user.'], function () {
