@@ -61,9 +61,9 @@ class ImageController extends Controller
             $ext = $ext[1];
             $imgName = 'img_home' . uniqid() . '.' . $ext;
             if ($ext == 'png') {
-                imagepng($image, 'storage/' . $imgName, 8);
+                imagepng($image, 'storage/slide/' . $imgName, 8);
             } else {
-                imagejpeg($image, 'storage/' . $imgName, 20);
+                imagejpeg($image, 'storage/slide/' . $imgName, 20);
             }
             DB::table('images')->where('id', $slideGetId)->update(['img_home' => $imgName]);
         }

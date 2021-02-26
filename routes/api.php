@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
+Route::get('berita', 'API\BeritaController@index');
 Route::post('login', 'API\AuthController@login');
 Route::post('register', 'API\AuthController@register');
 
@@ -48,6 +49,8 @@ Route::middleware('auth:api')->group(function () {
         Route::post('/{id}', 'API\MapController@update');
         Route::delete('hapus/{id}', 'API\MapController@destroy');
     });
-    //
-    Route::resource('berita', 'API\BeritaController');
+
+    Route::group(['prefix' => 'berita', 'as' => 'berita.'], function () {
+        Route::post('/', 'API\BeritaController@store');
+    });
 });
