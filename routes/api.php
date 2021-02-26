@@ -14,31 +14,40 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+// Route::middleware('auth:api')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
 
 Route::post('login', 'API\AuthController@login');
 Route::post('register', 'API\AuthController@register');
-//pemesanan
+
+Route::post('image', 'API\ImageController@store');
+
+Route::get('map', 'API\MapController@index');
+Route::get('map/{id}', 'API\MapController@show');
+
 Route::post('pemesanan', 'API\PemesananController@store');
 Route::get('pemesanan', 'API\PemesananController@index');
 Route::get('pemesanan/{id}', 'API\PemesananController@show');
 Route::post('pemesanan/{id}', 'API\PemesananController@update');
-Route::delete('hapus/pemesanan/{id}', 'API\PemesananController@destroy');
-
-//map
-Route::post('map', 'API\MapController@store');
-Route::get('map', 'API\MapController@index');
-Route::get('map/{id}', 'API\MapController@show');
-Route::post('map/{id}', 'API\MapController@update');
-Route::delete('hapus/map/{id}', 'API\MapController@destroy');
-
-//
-Route::resource('berita', 'API\BeritaController');
 
 Route::middleware('auth:api')->group(function () {
     Route::group(['prefix' => 'user', 'as' => 'user.'], function () {
-        Route::get('/logout', 'API\AuthController@logout');
+        Route::get('logout', 'API\AuthController@logout');
+        Route::get('/', 'API\AuthController@user');
     });
+    //pemesanan
+
+    Route::group(['prefix' => 'pemesanan', 'as' => 'pemesanan.'], function () {
+        Route::delete('hapus/{id}', 'API\PemesananController@destroy');
+    });
+
+    //map
+    Route::group(['prefix' => 'map', 'as' => 'map.'], function () {
+        Route::post('/', 'API\MapController@store');
+        Route::post('/{id}', 'API\MapController@update');
+        Route::delete('hapus/{id}', 'API\MapController@destroy');
+    });
+    //
+    Route::resource('berita', 'API\BeritaController');
 });
