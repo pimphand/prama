@@ -22,6 +22,7 @@ Route::get('berita', 'API\BeritaController@index');
 Route::post('login', 'API\AuthController@login');
 Route::post('register', 'API\AuthController@register');
 
+Route::get('image', 'API\ImageController@index');
 Route::post('image', 'API\ImageController@store');
 
 Route::get('map', 'API\MapController@index');

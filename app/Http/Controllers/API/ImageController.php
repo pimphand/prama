@@ -17,7 +17,12 @@ class ImageController extends Controller
      */
     public function index()
     {
-        //
+        $image = Image::latest()->paginate(5);
+        return response([
+            'success' => true,
+            'message' => 'List Semua Gambar',
+            'data' => $image
+        ], 200);
     }
 
     /**
