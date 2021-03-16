@@ -85,24 +85,11 @@
 
         <div class="content">
             <div class="title m-b-md">
-                Laravel
+                @foreach($data as $item)
+                	<img src="{{ $item->image }}" alt="">
+                @endforeach
             </div>
-            https://prama.dmptdev.com/api/berita <br>
-
-
-            Route::get('berita', 'API\BeritaController@index');
-            Route::post('login', 'API\AuthController@login');
-            Route::post('register', 'API\AuthController@register');
-
-            Route::post('image', 'API\ImageController@store');
-
-            Route::get('map', 'API\MapController@index');
-            Route::get('map/{id}', 'API\MapController@show');
-
-            Route::post('pemesanan', 'API\PemesananController@store');
-            Route::get('pemesanan', 'API\PemesananController@index');
-            Route::get('pemesanan/{id}', 'API\PemesananController@show');
-            Route::post('pemesanan/{id}', 'API\PemesananController@update');
+            
         </div>
     </div>
 </body>
