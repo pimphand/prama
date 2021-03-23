@@ -16,11 +16,10 @@ class CreateLowongansTable extends Migration
     {
         Schema::create('lowongans', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('gambar');
+            $table->string('nama');
             $table->longText('deskripsi');
-            $table->string('link');
-            $table->date('deadline')->nullable();
+            $table->longText('persyaratan');
+            $table->date('batas_waktu')->nullable();
             $table->timestamps();
         });
     }
