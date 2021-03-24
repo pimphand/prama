@@ -1,7 +1,7 @@
 @extends('temp.template')
 @section('content')
 
-<section class="heroberita" data-aos="fade-up">
+<section class="heroberita" style="background-image: linear-gradient(rgba(160, 151, 151, 0.5),rgba(161, 142, 142, 0.5)),url(../assets/img/HEADLINE.png);" data-aos="fade-up">
     <div class="col-lg-6 col-md-6 col-sm-6 col-6 text-center herotentang-text_berita box">
         <!-- <h1>Kerjasama Prama <span>Dengan MNC Group</span></h1> -->
     </div>

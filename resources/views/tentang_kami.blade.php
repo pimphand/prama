@@ -1,7 +1,8 @@
 @extends('temp.template')
 @section('content')
 
-<section class="herotentang" data-aos="fade-up">
+<section class="herotentang" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+url(../assets/img/tentangkamigmbr.png);" data-aos="fade-up">
     <div class="herotentang-text">
         <h1>Berangkat Dari <span>Kepercayaan Pelanggan</span> Terhadap Integritas Kami</h1>
     </div>

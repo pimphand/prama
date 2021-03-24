@@ -1,6 +1,6 @@
 @extends('temp.template')
 @section('content')
-    <section id="hero">
+    <section id="hero" style="background-image: url(../assets/img/hero-bg.jpg);">
         <div class="container hero-text col-lg-3">
             <h1>MITRA <span>PENGIRIMAN </span><br>TERPERCAYA <span>ANDA</span></h1>
         </div>

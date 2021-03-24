@@ -532,11 +532,7 @@ h6 {
 # Hero Section
 --------------------------------------------------------------*/
 .heroberita {
-    background-image: linear-gradient(
-            rgba(160, 151, 151, 0.5),
-            rgba(161, 142, 142, 0.5)
-        ),
-        url("../img/HEADLINE.png");
+    /* background-image: linear-gradient(rgba(160, 151, 151, 0.5),rgba(161, 142, 142, 0.5)),url("../img/HEADLINE.png"); */
     height: 85vh;
     width: 100%;
     background-position: center;
@@ -545,8 +541,8 @@ h6 {
     position: relative;
 }
 .herotentang {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-        url("../img/tentang_kamigmbr.png");
+    /* background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        url("../img/tentangkamigmbr.png"); */
     height: 85vh;
     width: 100%;
     background-position: center;
@@ -590,12 +586,7 @@ h6 {
 } */
 
 .herokarir {
-    background-image: linear-gradient(
-            to top left,
-            rgba(0, 0, 0, 0.2),
-            rgba(0, 0, 0, 0)
-        ),
-        url("../img/karirgmbr.png");
+    /* background-image: linear-gradient(to top left, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0)),url("../img/karirgmbr.png"); */
     height: 85vh;
     width: 100%;
     background-position: center;
@@ -1003,7 +994,7 @@ h6 {
 }
 
 #hero {
-    background-image: url("../img/hero-bg.jpg");
+    /* background-image: url("../img/hero-bg.jpg"); */
     height: 85vh;
     width: 100%;
     background-position: center;

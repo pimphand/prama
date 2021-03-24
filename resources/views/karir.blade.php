@@ -1,7 +1,7 @@
 @extends('temp.template')
 @section('content')
 
-    <section class="herokarir" data-aos="fade-up">
+    <section class="herokarir" style="background-image: linear-gradient(to top left, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0)),url(../assets/img/karirgmbr.png);" data-aos="fade-up">
         <div class="herokarir-text">
             <h1>Selamat Datang <span>Rekrutmen</span> PRAMA LOGISTIC</h1>
         </div>
